@@ -252,7 +252,7 @@ const hotspots = ref<Hotspot[]>([
   {
     id: 'armory',
     title: 'Armory',
-    description: 'Shared asset treasury where collective resources become individual power through quest-specific loadouts, member lending, internal marketplace, and competitive edge assets.',
+    description: 'Your guild\'s gear arsenal and trading post. Pick up equipment for missions, borrow gear from fellow members, or shop for surplus items. Turn collective resources into individual power.',
     path: 'M 14.34 24.21 L 21.23 19.18 L 31.95 14.00 L 31.84 3.29 L 42.17 3.26 L 42.41 15.97 L 28.36 22.93 L 28.49 25.08 L 21.11 28.68 Z',
     imageSrc: '/infographic/Castle_Armory.webp',
     features: [

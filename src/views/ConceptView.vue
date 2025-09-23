@@ -373,27 +373,6 @@
                 </div>
               </div>
               
-              <div class="a-la-carte-examples">
-                <h3>Available Components soon...</h3>
-                <div class="examples-grid">
-                  <div class="example-card">
-                    <h4><Icon icon="game-icons:foundry" /> Foundry Module</h4>
-                    <p>Complete token creation and NFT minting system with customizable parameters and branding options.</p>
-                  </div>
-                  <div class="example-card">
-                    <h4><Icon icon="game-icons:armory" /> Armory Module</h4>
-                    <p>G2P (Guild-to-Player) trading platform with custom whitelist and trading fees.</p>
-                  </div>
-                  <div class="example-card">
-                    <h4><Icon icon="game-icons:bank" /> Gatekeeping Module</h4>
-                    <p>Create and maintain a whitelist of members and use this on your website to control access.</p>
-                  </div>
-                  <div class="example-card">
-                    <h4><Icon icon="game-icons:scales" /> Custom Skin Package</h4>
-                    <p>Custom Skin package for a dGuild dapp (when finished, no direct utility, but helps us cover costs)</p>
-                  </div>
-                </div>
-              </div>
               
               <div class="a-la-carte-note">
                 <h3>Getting Started</h3>
