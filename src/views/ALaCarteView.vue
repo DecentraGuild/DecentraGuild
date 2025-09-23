@@ -47,7 +47,7 @@
             Ready to build your custom guild infrastructure?
           </p>
           <div class="cta-buttons">
-            <router-link to="/dguide" class="btn btn-secondary">
+            <router-link to="/concept" class="btn btn-secondary">
               Learn More
             </router-link>
             <router-link to="/about" class="btn btn-primary">

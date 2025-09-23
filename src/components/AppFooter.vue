@@ -53,7 +53,7 @@
         <div class="footer-bottom">
           <div class="footer-bottom-content">
             <p class="footer-copyright">
-              © 2024 DecentraGuild. Built on Solana. Made for gamers.
+              © 2025 DecentraGuild. Built on Solana. Made for gamers.
             </p>
             <div class="footer-badges">
               <span class="footer-badge">
