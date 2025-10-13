@@ -50,7 +50,7 @@
             Ready to build your custom guild infrastructure?
           </p>
           <div class="cta-buttons">
-            <router-link to="/docs" class="btn btn-secondary">
+            <router-link to="/about" class="btn btn-secondary">
               Learn More
             </router-link>
             <router-link to="/about" class="btn btn-primary">

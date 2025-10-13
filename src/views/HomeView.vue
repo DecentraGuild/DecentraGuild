@@ -84,6 +84,19 @@
         </div>
       </div>
     </section>
+
+    <!-- Blueprint CTA Section -->
+    <section class="section blueprint-cta-section">
+      <div class="container">
+        <div class="blueprint-cta-content">
+          <h2 class="blueprint-cta-title">Ready to Build Your Guild?</h2>
+          <p class="blueprint-cta-subtitle">Explore our comprehensive blueprint and start building your decentralized guild today</p>
+          <router-link to="/blueprint" class="btn btn-primary btn-large">
+            View Blueprint
+          </router-link>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -334,6 +347,50 @@ onUnmounted(() => {
 @media (max-width: 480px) {
   .why-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Blueprint CTA Section */
+.blueprint-cta-section {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+  padding: 80px 0;
+  text-align: center;
+}
+
+.blueprint-cta-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.blueprint-cta-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #00d4ff 0%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+}
+
+.blueprint-cta-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .blueprint-cta-section {
+    padding: 60px 0;
+  }
+  
+  .blueprint-cta-title {
+    font-size: 2rem;
+  }
+  
+  .blueprint-cta-subtitle {
+    font-size: 1.1rem;
   }
 }
 </style>

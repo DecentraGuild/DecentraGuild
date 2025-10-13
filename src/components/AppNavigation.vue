@@ -40,9 +40,7 @@
           <router-link to="/blueprint" class="mobile-nav-link" @click="closeMobileMenu">Blueprint</router-link>
           <router-link to="/build-your-own" class="mobile-nav-link" @click="closeMobileMenu">Build-Your-Own</router-link>
           <router-link to="/about" class="mobile-nav-link" @click="closeMobileMenu">About Us</router-link>
-        </div>
-        <div class="mobile-nav-cta">
-          <a href="https://dapp.decentraguild.com" target="_blank" class="btn btn-primary btn-large" @click="closeMobileMenu">
+          <a href="https://dapp.decentraguild.com" target="_blank" class="mobile-nav-link mobile-demo-link" @click="closeMobileMenu">
             Demo
           </a>
         </div>
@@ -225,7 +223,6 @@ const closeMobileMenu = () => {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  margin-bottom: 24px;
 }
 
 .mobile-nav-link {
@@ -243,11 +240,18 @@ const closeMobileMenu = () => {
   color: var(--primary-color);
 }
 
-.mobile-nav-cta {
-  display: flex;
-  justify-content: center;
-  padding-top: 16px;
-  border-top: 1px solid var(--border-color);
+.mobile-demo-link {
+  background: var(--gradient-primary);
+  color: white !important;
+  border-radius: 8px;
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+.mobile-demo-link:hover {
+  background: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 212, 255, 0.3);
 }
 
 /* Responsive */

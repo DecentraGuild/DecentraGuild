@@ -64,7 +64,7 @@
     <section class="content-section fade-section alternate" ref="section2">
       <div class="section-container">
         <div class="section-header">
-          <h2 class="section-title">Value through collaboration</h2>
+          <h2 class="section-title">Find real value in collaboration</h2>
         </div>
         
         <div class="section-grid reverse">
@@ -268,10 +268,10 @@
         <h2 class="cta-title">Ready to Build Your Guild?</h2>
         <p class="cta-subtitle">Join the future of Web3 gaming and community governance</p>
         <div class="cta-buttons">
-          <router-link to="/demo" class="cta-button primary">
+          <a href="https://dapp.decentraguild.com" target="_blank" class="cta-button primary">
             <Icon icon="mdi:play-circle" />
             <span>Try the Demo</span>
-          </router-link>
+          </a>
           <router-link to="/build-your-own" class="cta-button secondary">
             <Icon icon="mdi:toolbox" />
             <span>Build Your Own</span>

@@ -377,10 +377,25 @@ watch(() => route.path, (newPath, oldPath) => {
   }
 }, { immediate: true })
 
+// Click outside handler
+const handleClickOutside = (event: MouseEvent) => {
+  const sidebar = document.querySelector('.castle-sidebar') as HTMLElement
+  const castleContainer = document.querySelector('.castle-infographic') as HTMLElement
+  
+  if (sidebar && castleContainer && clickedHotspot.value) {
+    // Check if click is outside both sidebar and castle container
+    if (!sidebar.contains(event.target as Node) && !castleContainer.contains(event.target as Node)) {
+      closeSidebar()
+    }
+  }
+}
+
 // Lifecycle
 onMounted(() => {
   // Add scroll listener to maintain sidebar position
   window.addEventListener('scroll', handleScroll, { passive: true })
+  // Add click outside listener
+  document.addEventListener('click', handleClickOutside)
 })
 
 onUnmounted(() => {
@@ -389,6 +404,8 @@ onUnmounted(() => {
     clearTimeout(hoverTimeout)
   }
   window.removeEventListener('scroll', handleScroll)
+  // Remove click outside listener
+  document.removeEventListener('click', handleClickOutside)
 })
 </script>
 
