@@ -2,7 +2,7 @@
   <div class="home">
     <!-- Hero Section -->
     <HeroSection 
-      :video-src="'/HomeIntro.mp4'"
+      :video-src="'/Homeintro.mp4'"
       :title="'Create Your dGuild.<br />Build Your House.<br /><span class=\'text-gradient\'>Rule On-Chain.</span>'"
       :subtitle="'DecentraGuild lets you create and manage decentralized guilds with tools for missions, events, rewards, governance and more — powered by Solana.'"
     />

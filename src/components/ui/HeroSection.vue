@@ -2,17 +2,24 @@
   <section class="hero-section section-hero" :class="customClass">
     <!-- Video Background -->
     <video 
-      v-if="videoSrc"
+      v-if="videoSrc && !videoError"
       class="hero-video" 
       autoplay 
       muted 
       playsinline
+      loop
+      preload="auto"
       @ended="onVideoEnd"
+      @error="onVideoError"
+      @loadeddata="onVideoLoaded"
       ref="heroVideo"
     >
       <source :src="videoSrc" type="video/mp4">
       Your browser does not support the video tag.
     </video>
+    
+    <!-- Fallback background if video fails -->
+    <div v-if="videoError" class="hero-fallback-bg"></div>
     
     <div class="container">
       <div class="hero-content text-center" :class="{ 'text-lit': isTextLit }">
@@ -73,9 +80,27 @@ const emit = defineEmits<{
 let timelineInterval: number | null = null
 const heroVideo = ref<HTMLVideoElement>()
 const isTextLit = ref(false)
+const videoError = ref(false)
 
 const onVideoEnd = () => {
-  // Video ended, keep last frame
+  // Video ended, restart it for looping
+  if (heroVideo.value) {
+    heroVideo.value.currentTime = 0
+    heroVideo.value.play().catch(console.error)
+  }
+}
+
+const onVideoError = (event: Event) => {
+  console.error('Video failed to load:', event)
+  videoError.value = true
+}
+
+const onVideoLoaded = () => {
+  console.log('Video loaded successfully')
+  // Ensure video plays
+  if (heroVideo.value) {
+    heroVideo.value.play().catch(console.error)
+  }
 }
 
 const startTextAnimation = () => {
@@ -117,6 +142,17 @@ onUnmounted(() => {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  z-index: -2;
+}
+
+/* Fallback background */
+.hero-fallback-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
   z-index: -2;
 }
 

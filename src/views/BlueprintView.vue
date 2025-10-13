@@ -186,7 +186,7 @@
               
               <div class="tagline">
                 <Icon icon="mdi:castle" class="tagline-icon" />
-                Ruled by tokens, built by members.
+                Controlled by tokens, built for it's members.
               </div>
             </div>
           </div>
@@ -219,7 +219,7 @@
           </div>
           
           <div class="content-card main-card">
-            <h3 class="card-heading">Together as One</h3>
+            <h3 class="card-heading">A solid Foundation</h3>
             <div class="card-content">
               <p>
                 When you create a dGuild, you gain access to a complete suite of on-chain tools that transform your community into a self-running organization.
