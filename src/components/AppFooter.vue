@@ -12,6 +12,13 @@
             <p class="footer-description">
               Create your dGuild, Build your house, Rule on-chain.
             </p>
+            <div class="footer-links">
+              <router-link to="/docs" class="footer-link">
+                <Icon icon="game-icons:scroll-quill" />
+                Documentation
+              </router-link>
+            </div>
+            
             <div class="footer-socials">
               <a href="https://discord.gg/pcSmsNsg" target="_blank" class="social-link" title="Discord">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -70,6 +77,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { Icon } from '@iconify/vue'
 
 const email = ref('')
 
@@ -134,6 +142,32 @@ const subscribeNewsletter = () => {
   color: var(--text-secondary);
   margin-bottom: 24px;
   line-height: 1.6;
+}
+
+.footer-links {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+  background: rgba(0, 212, 255, 0.1);
 }
 
 .footer-socials {

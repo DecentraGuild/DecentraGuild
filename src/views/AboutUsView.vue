@@ -213,7 +213,7 @@
           <p class="mb-4">
             Experience what makes DecentraGuild special with our interactive demo.
           </p>
-                      <router-link to="/concept" class="btn btn-primary btn-large">
+                      <router-link to="/docs" class="btn btn-primary btn-large">
             Learn More
           </router-link>
         </div>

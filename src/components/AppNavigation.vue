@@ -11,9 +11,9 @@
         <!-- Desktop Navigation -->
         <div class="nav-links">
           <router-link to="/" class="nav-link">Home</router-link>
+          <router-link to="/blueprint" class="nav-link">Blueprint</router-link>
+          <router-link to="/build-your-own" class="nav-link">Build-Your-Own</router-link>
           <router-link to="/about" class="nav-link">About Us</router-link>
-          <router-link to="/concept" class="nav-link">Concept</router-link>
-          <router-link to="/a-la-carte" class="nav-link">A la Carte</router-link>
         </div>
 
         <!-- CTA Button -->
@@ -37,9 +37,9 @@
       <div class="mobile-nav" :class="{ active: mobileMenuOpen }">
         <div class="mobile-nav-links">
           <router-link to="/" class="mobile-nav-link" @click="closeMobileMenu">Home</router-link>
+          <router-link to="/blueprint" class="mobile-nav-link" @click="closeMobileMenu">Blueprint</router-link>
+          <router-link to="/build-your-own" class="mobile-nav-link" @click="closeMobileMenu">Build-Your-Own</router-link>
           <router-link to="/about" class="mobile-nav-link" @click="closeMobileMenu">About Us</router-link>
-          <router-link to="/concept" class="mobile-nav-link" @click="closeMobileMenu">Concept</router-link>
-          <router-link to="/a-la-carte" class="mobile-nav-link" @click="closeMobileMenu">A la Carte</router-link>
         </div>
         <div class="mobile-nav-cta">
           <a href="https://dapp.decentraguild.com" target="_blank" class="btn btn-primary btn-large" @click="closeMobileMenu">

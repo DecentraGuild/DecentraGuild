@@ -4,9 +4,12 @@
     <section class="section-header">
       <div class="container">
         <div class="header-content text-center">
-          <h1 class="page-title">A la Carte</h1>
+          <h1 class="page-title">Build-Your-Own</h1>
           <p class="page-subtitle">
-            Modular components for your web3 community.
+            While we work towards delivering the complete dGuild package, we offer modular room solutions that allow communities to use finished components and build their own customized toolkit.
+          </p>
+          <p class="page-description">
+            This approach enables us to fund new smart contract deployments while providing immediate value to communities that need specific functionality. You can pick and choose the tools that work for your guild right now, then expand as more features become available.
           </p>
         </div>
       </div>
@@ -47,7 +50,7 @@
             Ready to build your custom guild infrastructure?
           </p>
           <div class="cta-buttons">
-            <router-link to="/concept" class="btn btn-secondary">
+            <router-link to="/docs" class="btn btn-secondary">
               Learn More
             </router-link>
             <router-link to="/about" class="btn btn-primary">
@@ -119,7 +122,16 @@ const modules = ref([
 .page-subtitle {
   font-size: 1.2rem;
   color: var(--text-secondary);
+  margin: 0 0 20px 0;
+  line-height: 1.6;
+}
+
+.page-description {
+  font-size: 1rem;
+  color: var(--text-secondary);
   margin: 0 0 40px 0;
+  line-height: 1.6;
+  opacity: 0.9;
 }
 
 
