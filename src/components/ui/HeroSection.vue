@@ -86,20 +86,18 @@ const onVideoEnd = () => {
   // Video ended, restart it for looping
   if (heroVideo.value) {
     heroVideo.value.currentTime = 0
-    heroVideo.value.play().catch(console.error)
+    heroVideo.value.play().catch(() => {})
   }
 }
 
-const onVideoError = (event: Event) => {
-  console.error('Video failed to load:', event)
+const onVideoError = () => {
   videoError.value = true
 }
 
 const onVideoLoaded = () => {
-  console.log('Video loaded successfully')
   // Ensure video plays
   if (heroVideo.value) {
-    heroVideo.value.play().catch(console.error)
+    heroVideo.value.play().catch(() => {})
   }
 }
 

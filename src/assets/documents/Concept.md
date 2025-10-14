@@ -155,9 +155,9 @@ Proposals adjust governance parameters and council roles, quests and reward mech
 
 ---
 
-## A la Carte
+## Build-Your-Own
 
-Each A la Carte component includes setup fees and ongoing maintenance costs, but provides immediate functionality for your community. As we develop new features, existing deployments can be upgraded or expanded with additional modules.
+Each Build-Your-Own component includes setup fees and ongoing maintenance costs, but provides immediate functionality for your community. As we develop new features, existing deployments can be upgraded or expanded with additional modules.
 
 ### Available Modules
 

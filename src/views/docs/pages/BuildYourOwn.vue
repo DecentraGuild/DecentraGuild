@@ -30,13 +30,13 @@
       <div class="principle-card">
         <div class="principle-icon"><Icon icon="game-icons:coins" /></div>
         <h4>Funding Development</h4>
-        <p>Revenue from A la Carte deployments helps fund new smart contract development and infrastructure improvements, accelerating the path to the complete dGuild platform.</p>
+        <p>Revenue from Build-Your-Own deployments helps fund new smart contract development and infrastructure improvements, accelerating the path to the complete dGuild platform.</p>
       </div>
     </div>
     
-    <div class="a-la-carte-note">
+    <div class="build-your-own-note">
       <h3>Getting Started</h3>
-      <p>Each A la Carte component includes setup fees and ongoing maintenance costs, but provides immediate functionality for your community. As we develop new features, existing deployments can be upgraded or expanded with additional modules.</p>
+      <p>Each Build-Your-Own component includes setup fees and ongoing maintenance costs, but provides immediate functionality for your community. As we develop new features, existing deployments can be upgraded or expanded with additional modules.</p>
     </div>
   </DocPageLayout>
 </template>
@@ -58,7 +58,7 @@ import DocPageLayout from '@/components/docs/DocPageLayout.vue'
   margin-bottom: 24px;
 }
 
-.a-la-carte-note {
+.build-your-own-note {
   background: var(--secondary-bg);
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
@@ -66,14 +66,14 @@ import DocPageLayout from '@/components/docs/DocPageLayout.vue'
   margin-top: 32px;
 }
 
-.a-la-carte-note h3 {
+.build-your-own-note h3 {
   color: var(--text-primary);
   margin-bottom: 12px;
   font-size: 1.1rem;
   font-weight: 600;
 }
 
-.a-la-carte-note p {
+.build-your-own-note p {
   margin: 0;
   font-size: 0.95rem;
   color: var(--text-secondary);

@@ -84,7 +84,7 @@
                 But collaborating on-chain as a group requires deep technical knowledge, legal frameworks, and capital that most individuals don't want to risk.
               </p>
               <p>
-                This is where dGuild changes everything. By accepting our blueprint your allowed to function as 1 entity, right from the start.
+                This is where dGuild changes everything. By accepting our blueprint you're allowed to function as 1 entity, right from the start.
                  By pooling resources into <strong>dGuild vaults</strong>, members gain access to assets and opportunities they couldn't reach individually.
               </p>
               

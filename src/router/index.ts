@@ -26,7 +26,7 @@ const router = createRouter({
     {
       path: '/build-your-own',
       name: 'build-your-own',
-      component: () => import('@/views/ALaCarteView.vue')
+      component: () => import('@/views/BuildYourOwnView.vue')
     },
     {
       path: '/blueprint',
@@ -70,7 +70,7 @@ const router = createRouter({
         {
           path: 'build-your-own',
           name: 'docs-build-your-own',
-          component: () => import('@/views/docs/pages/ALaCarte.vue')
+          component: () => import('@/views/docs/pages/BuildYourOwn.vue')
         },
         // Digital Castle
         {
