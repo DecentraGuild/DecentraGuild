@@ -69,23 +69,28 @@ import { ref } from 'vue'
 // Module data
 const modules = ref([
   {
-    name: "Foundry Module",
-    description: "Modules for token creation, tokenwrappers with escrows vaults and NFT minting system with customizable parameters",
+    name: "Foundry Room",
+    description: "Modules for token creation, token wrappers with escrows vaults and NFT minting system with customizable parameters",
     image: "/alacarte/foundrymodule.webp"
   },
   {
-    name: "Armory Module", 
-    description: "G2P (Guild-to-Player) trading platform with custom whitelist and trading fees.",
+    name: "Armory Room", 
+    description: "Modules for Airdrops, G2P (Guild-to-Player) trading platform with custom whitelist and trading fees",
     image: "/alacarte/Armorymodule.webp"
   },
   {
-    name: "Gatekeeping Module",
-    description: "Create and maintain a whitelist of wallets and use this on your website to control access.",
+    name: "Quest Room",
+    description: "A module that allows you to create a full on-chain quest system for on-chain collaboration",
+    image: "/alacarte/Questmodule.webp"
+  },
+  {
+    name: "Gate Room ",
+    description: "Create and maintain a whitelist of wallets and use this on your website to control access or use tokenholder snapshots",
     image: "/alacarte/Gatekeepingmodule.webp"
   },
   {
-    name: "Tavern Module",
-    description: "Raffle system for community engagement and entertainment.",
+    name: "Tavern Room",
+    description: "Modules for planning on-chain Events, Raffles, Poker or host a Dicegame for community engagement and entertainment.",
     image: "/alacarte/tavernmodule.webp"
   },
   {
@@ -318,3 +323,4 @@ const modules = ref([
   }
 }
 </style>
+

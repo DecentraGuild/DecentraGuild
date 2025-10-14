@@ -33,25 +33,17 @@
             </div>
           </div>
 
-          <!-- Newsletter Signup -->
-          <div class="footer-newsletter">
-            <div class="newsletter-content">
-              <h4 class="newsletter-title">Stay Updated</h4>
-              <p class="newsletter-description">
-                Get the latest updates on DecentraGuild development and gaming guild best practices.
+          <!-- Contact Us -->
+          <div class="footer-contact">
+            <div class="contact-content">
+              <h4 class="contact-title">Get in Touch</h4>
+              <p class="contact-description">
+                Have questions or want to learn more about DecentraGuild? We'd love to hear from you.
               </p>
-              <form class="newsletter-form" @submit.prevent="subscribeNewsletter">
-                <input 
-                  type="email" 
-                  v-model="email"
-                  placeholder="Enter your email"
-                  class="newsletter-input"
-                  required
-                >
-                <button type="submit" class="btn btn-primary newsletter-btn">
-                  Subscribe
-                </button>
-              </form>
+              <a href="mailto:jordi@decentraguild.com" class="btn btn-primary contact-btn">
+                📧
+                Send Email
+              </a>
             </div>
           </div>
         </div>
@@ -77,17 +69,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Icon } from '@iconify/vue'
 
-const email = ref('')
-
-const subscribeNewsletter = () => {
-  if (email.value) {
-    // Show popup that service is not available yet
-    alert('Newsletter service is not available yet. We\'re working on it!')
-    email.value = ''
-  }
-}
 </script>
 
 <style scoped>
@@ -197,58 +179,35 @@ const subscribeNewsletter = () => {
 }
 
 
-/* Newsletter */
-.footer-newsletter {
+/* Contact */
+.footer-contact {
   background: var(--secondary-bg);
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius-lg);
   padding: 32px;
 }
 
-.newsletter-content {
+.contact-content {
   text-align: left;
 }
 
-.newsletter-title {
+.contact-title {
   color: var(--text-primary);
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 8px;
 }
 
-.newsletter-description {
+.contact-description {
   color: var(--text-secondary);
   margin-bottom: 24px;
 }
 
-.newsletter-form {
-  display: flex;
-  gap: 12px;
-  max-width: 100%;
-}
-
-.newsletter-input {
-  flex: 1;
-  padding: 12px 16px;
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius);
-  color: var(--text-primary);
-  font-size: 1rem;
-  outline: none;
-  transition: border-color 0.3s ease;
-}
-
-.newsletter-input:focus {
-  border-color: var(--primary-color);
-}
-
-.newsletter-input::placeholder {
-  color: var(--text-muted);
-}
-
-.newsletter-btn {
-  min-width: 120px;
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 140px;
 }
 
 /* Footer Bottom */
@@ -312,20 +271,15 @@ const subscribeNewsletter = () => {
     gap: 24px;
   }
 
-  .footer-newsletter {
+  .footer-contact {
     padding: 24px;
   }
 
-  .newsletter-content {
+  .contact-content {
     text-align: center;
   }
 
-  .newsletter-form {
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .newsletter-btn {
+  .contact-btn {
     min-width: auto;
   }
 

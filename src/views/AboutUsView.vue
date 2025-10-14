@@ -163,25 +163,17 @@
           
           <FeatureCard 
             icon="📧"
-            title="Newsletter"
-            description="We're busy building! Be the first to know when we have something to release."
+            title="Contact Us"
+            description="Have questions or want to get in touch? Send us an email and we'll get back to you as soon as possible."
             icon-shape="none"
             icon-color="rgba(0, 212, 255, 0.8)"
             accent-color="rgba(0, 212, 255, 1)"
             custom-class="join-card"
           >
             <template #tags>
-              <div class="newsletter-form">
-                <input 
-                  type="email" 
-                  v-model="email"
-                  placeholder="Enter your email"
-                  class="newsletter-input"
-                >
-                <button @click="subscribeNewsletter" class="btn btn-primary">
-                  Subscribe
-                </button>
-              </div>
+              <a href="mailto:jordi@decentraguild.com" class="btn btn-primary">
+                Send Email
+              </a>
               <div class="empty-space"></div>
             </template>
           </FeatureCard>
@@ -227,15 +219,6 @@ import { ref } from 'vue'
 import GameIcon from '@/components/ui/GameIcon.vue'
 import FeatureCard from '@/components/ui/FeatureCard.vue'
 
-const email = ref('')
-
-const subscribeNewsletter = () => {
-  if (email.value) {
-    // Show popup that service is not available yet
-    alert('Newsletter service is not available yet. We\'re working on it!')
-    email.value = ''
-  }
-}
 </script>
 
 <style scoped>
@@ -459,33 +442,6 @@ const subscribeNewsletter = () => {
   justify-content: center;
 }
 
-/* Newsletter form specific adjustments */
-.join-card .newsletter-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  width: 100%;
-}
-
-.join-card .newsletter-input {
-  padding: 12px 16px;
-  background: var(--primary-bg);
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius);
-  color: var(--text-primary);
-  font-size: 1rem;
-  outline: none;
-  transition: border-color 0.3s ease;
-  width: 100%;
-}
-
-.join-card .newsletter-input:focus {
-  border-color: var(--primary-color);
-}
-
-.join-card .newsletter-input::placeholder {
-  color: var(--text-muted);
-}
 
 /* Empty space to make cards longer */
 .empty-space {

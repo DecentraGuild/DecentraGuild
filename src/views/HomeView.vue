@@ -3,7 +3,7 @@
     <!-- Hero Section -->
     <HeroSection 
       :video-src="'/intro.mp4'"
-      :title="'Create Your dGuild.<br />Build Your House.<br /><span class=\'text-gradient\'>Rule On-Chain.</span>'"
+      :title="'Create a dGuild.<br />Build Your House.<br /><span class=\'text-gradient\'>Rule On-Chain.</span>'"
       :subtitle="'DecentraGuild lets you create and manage decentralized guilds with tools for missions, events, rewards, governance and more — powered by Solana.'"
     />
 
