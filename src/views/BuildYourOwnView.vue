@@ -184,14 +184,7 @@ const modules = ref([
   border-radius: var(--border-radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-card);
-  transition: all 0.3s ease;
   border: 1px solid var(--border-color);
-}
-
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-card-hover);
-  border-color: var(--primary-color);
 }
 
 .card-image {
@@ -203,11 +196,6 @@ const modules = ref([
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.card:hover .card-image img {
-  transform: scale(1.05);
 }
 
 .card-content {

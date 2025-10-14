@@ -106,46 +106,19 @@ const props = withDefaults(defineProps<Props>(), {
 
 /* Main card pointed end effect - removed as clip-path handles the shape */
 
-/* Hover effects */
-.feature-card-wrapper:hover {
-  transform: translateY(-8px) scale(1.02);
-}
-
-.feature-card-wrapper:hover .feature-card-bg {
-  opacity: 1;
-  filter: blur(2px);
-}
-
-.feature-card-wrapper:hover .feature-card {
-  box-shadow: 
-    0 15px 35px rgba(0, 0, 0, 0.3),
-    0 0 30px var(--icon-color),
-    inset 0 0 20px rgba(255, 255, 255, 0.1);
-}
-
-/* Hover effects for pseudo-elements removed as they no longer exist */
+/* Hover effects removed */
 
 .feature-icon {
   font-size: 3rem;
   margin-bottom: 16px;
-  transition: all 0.3s ease;
   color: var(--icon-color);
   position: relative;
-}
-
-.feature-card:hover .feature-icon {
-  transform: scale(1.15) translateY(-8px);
 }
 
 /* Emoji icon styling */
 .emoji-icon {
   font-size: 3rem;
   display: block;
-  transition: all 0.3s ease;
-}
-
-.feature-card:hover .emoji-icon {
-  transform: scale(1.15) translateY(-8px);
 }
 
 .feature-title {
@@ -154,24 +127,12 @@ const props = withDefaults(defineProps<Props>(), {
   margin-bottom: 12px;
   color: var(--text-primary);
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
-}
-
-.feature-card:hover .feature-title {
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 0 10px var(--icon-color);
-  transform: translateY(-2px);
 }
 
 .feature-description {
   color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: 32px;
-  transition: all 0.3s ease;
-}
-
-.feature-card:hover .feature-description {
-  color: var(--text-primary);
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .feature-tags {
@@ -195,13 +156,6 @@ const props = withDefaults(defineProps<Props>(), {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.tag:hover {
-  background: var(--tag-color);
-  color: white;
-  transform: translateY(-3px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 0 10px var(--tag-color);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-}
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -234,9 +188,6 @@ const props = withDefaults(defineProps<Props>(), {
     margin-bottom: 24px;
   }
   
-  .feature-card-wrapper:hover {
-    transform: translateY(-5px) scale(1.01);
-  }
 }
 
 @media (max-width: 480px) {

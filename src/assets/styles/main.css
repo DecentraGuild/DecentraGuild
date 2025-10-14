@@ -138,13 +138,6 @@ p {
   padding: 32px;
   border: 1px solid var(--border-color);
   box-shadow: var(--shadow-card);
-  transition: all 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  border-color: var(--primary-color);
-  box-shadow: var(--shadow-card), 0 0 20px rgba(0, 212, 255, 0.2);
 }
 
 /* Grid Systems */

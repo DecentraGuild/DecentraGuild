@@ -605,7 +605,6 @@ onUnmounted(() => {
   padding: 32px;
   border-radius: var(--border-radius-md);
   border: 2px solid;
-  transition: all 0.3s ease;
 }
 
 .token-card.token1 {
@@ -613,21 +612,9 @@ onUnmounted(() => {
   border-color: rgba(239, 68, 68, 0.3);
 }
 
-.token-card.token1:hover {
-  background: rgba(239, 68, 68, 0.1);
-  border-color: rgb(239, 68, 68);
-  transform: translateY(-4px);
-}
-
 .token-card.token2 {
   background: rgba(59, 130, 246, 0.05);
   border-color: rgba(59, 130, 246, 0.3);
-}
-
-.token-card.token2:hover {
-  background: rgba(59, 130, 246, 0.1);
-  border-color: rgb(59, 130, 246);
-  transform: translateY(-4px);
 }
 
 .token-header {
@@ -701,12 +688,6 @@ onUnmounted(() => {
   border-radius: var(--border-radius-sm);
   font-size: 1rem;
   color: var(--text-secondary);
-  transition: all 0.3s ease;
-}
-
-.capability-item:hover {
-  background: rgba(147, 51, 234, 0.1);
-  transform: translateX(4px);
 }
 
 .capability-item :deep(svg) {
