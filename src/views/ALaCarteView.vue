@@ -31,7 +31,21 @@
             :class="{ 'reverse': index % 2 === 1 }"
           >
             <div class="card-image">
-              <img :src="module.image" :alt="module.name" />
+              <div class="image-placeholder" v-if="!imageLoaded[index]">
+                <div class="placeholder-content">
+                  <div class="placeholder-spinner"></div>
+                  <span>Loading...</span>
+                </div>
+              </div>
+              <img 
+                :src="module.image" 
+                :alt="module.name"
+                loading="lazy"
+                decoding="async"
+                :style="{ 'content-visibility': 'auto' }"
+                @load="imageLoaded[index] = true"
+                :class="{ 'loaded': imageLoaded[index] }"
+              />
             </div>
             <div class="card-content">
               <h3 class="card-title">{{ module.name }}</h3>
@@ -99,6 +113,9 @@ const modules = ref([
     image: "/alacarte/CustomSkinmodule.webp"
   }
 ])
+
+// Track image loading states
+const imageLoaded = ref<Record<number, boolean>>({})
 </script>
 
 <style scoped>
@@ -162,6 +179,8 @@ const modules = ref([
 .section-cards {
   padding: 60px 0;
   background: var(--primary-bg);
+  /* Optimize for better rendering */
+  contain: layout style paint;
 }
 
 /* Stacked Layout */
@@ -194,11 +213,56 @@ const modules = ref([
   overflow: hidden;
 }
 
+.image-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--card-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.placeholder-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-secondary);
+}
+
+.placeholder-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--border-color);
+  border-top: 3px solid var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 .card-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  /* Optimize image rendering */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  /* Prevent layout shift */
+  aspect-ratio: 16/9;
+  opacity: 0;
+}
+
+.card-image img.loaded {
+  opacity: 1;
 }
 
 .card:hover .card-image img {

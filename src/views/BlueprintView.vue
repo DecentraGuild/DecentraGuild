@@ -21,7 +21,7 @@
     <section class="content-section fade-section" ref="section1">
       <div class="section-container">
         <div class="section-header">
-          <h2 class="section-title">Where Guilds Find Their Home</h2>
+          <h2 class="section-title">Where Guilds find Their Home</h2>
         </div>
         
         <div class="section-grid">
@@ -64,7 +64,7 @@
     <section class="content-section fade-section alternate" ref="section2">
       <div class="section-container">
         <div class="section-header">
-          <h2 class="section-title">Find real value in collaboration</h2>
+          <h2 class="section-title">Create real value in collaboration</h2>
         </div>
         
         <div class="section-grid reverse">
