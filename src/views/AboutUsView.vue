@@ -120,12 +120,11 @@
             
             <div class="partner-card card text-center">
               <div class="partner-icon">
-                <GameIcon icon="game-icons:radar-dish" size="lg" variant="primary" :glowing="false" icon-shape="none" />
+                <img src="/logo/Star Atlas.avif" alt="Star Atlas" class="building-block-logo">
               </div>
-              <h3>More</h3>
+              <h3>Star Atlas</h3>
               <p>
-                We will find the best building blocks for us to deliver the best product. 
-                If good tech is available, we will use it.
+                Connect directy to the Star Atlas Ecosystem from your multisig, Enter Lockers, Create fleets, Manage Rentals or interact with the Galactic Marketplace
               </p>
             </div>
           </div>
