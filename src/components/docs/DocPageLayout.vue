@@ -9,16 +9,25 @@
       <slot />
     </div>
     
-    <DocNavigation />
+    <DocNavigation :custom-next="customNext" />
   </div>
 </template>
 
 <script setup lang="ts">
 import DocNavigation from './DocNavigation.vue'
 
+interface CustomNextLink {
+  url: string
+  title: string
+  label?: string
+  icon?: string
+  external?: boolean
+}
+
 defineProps<{
   title: string
   description?: string
+  customNext?: CustomNextLink
 }>()
 </script>
 

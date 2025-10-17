@@ -59,3 +59,6 @@ pnpm-lock.yaml
 # Local development
 .vscode/settings.json
 .vscode/launch.json
+
+# Dumpster archive folder
+dumpster/

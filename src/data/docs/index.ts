@@ -1,61 +1,75 @@
 // Documentation navigation structure and metadata
+// 4-Layer Structure: CASTLE > CATEGORY > ROOM > FUNCTION
 
 export interface DocPage {
   id: string
   title: string
   path: string
-  category?: string
   description?: string
+}
+
+export interface DocRoom {
+  id: string
+  title: string
+  path: string  // Path to room intro page
+  description?: string
+  functions?: DocPage[]  // Optional function pages
 }
 
 export interface DocCategory {
   id: string
   title: string
   icon?: string
-  pages: (DocPage | DocSubcategory)[]
+  rooms: DocRoom[]
 }
 
-export interface DocSubcategory {
-  id: string
-  title: string
-  isSubcategory: true
-  pages: DocPage[]
-}
-
-// Documentation structure - organized hierarchy
+// Documentation structure - Digital Castle with 4 layers
 export const docsStructure: DocCategory[] = [
+  // Core Concepts (outside castle structure)
   {
     id: 'core-concepts',
     title: 'Core Concepts',
     icon: 'game-icons:crowned-skull',
-    pages: [
+    rooms: [
       {
-        id: 'what-is-dguild',
-        title: 'What is a dGuild?',
-        path: '/docs/what-is-dguild',
-        description: 'Introduction to dGuilds and the DecentraGuild platform'
+        id: 'general',
+        title: 'General',
+        path: '/docs/general',
+        description: 'The Decentralized Guild Framework'
       },
       {
-        id: 'governance',
-        title: 'DAO for King',
-        path: '/docs/governance',
-        description: 'Understanding the dual-DAO governance system'
+        id: 'vaults',
+        title: 'Vaults',
+        path: '/docs/vaults',
+        description: 'Four specialized vaults for guild asset management'
       },
       {
-        id: 'token-economy',
-        title: 'The Token Economy',
-        path: '/docs/token-economy',
-        description: 'How Token1 and Token2 power dGuild operations'
+        id: 'dao-governance',
+        title: 'DAO Governance',
+        path: '/docs/dao-governance',
+        description: 'Dual-DAO system balancing contribution and stability'
+      },
+      {
+        id: 'token1',
+        title: 'Token 1 — Contribution Token',
+        path: '/docs/token1',
+        description: 'Represent active participation within the guild'
+      },
+      {
+        id: 'token2',
+        title: 'Token 2 — Stability Token',
+        path: '/docs/token2',
+        description: 'Represent long-term stability and alignment'
       },
       {
         id: 'legal-framework',
         title: 'Legal Framework',
         path: '/docs/legal-framework',
-        description: 'Legal wrappers and compliance for dGuilds'
+        description: 'Real-world legitimacy through legal wrappers'
       },
       {
         id: 'lifecycle',
-        title: 'The dGuild Lifecycle',
+        title: 'Lifecycle',
         path: '/docs/lifecycle',
         description: 'The journey from establishment to growth'
       },
@@ -67,165 +81,319 @@ export const docsStructure: DocCategory[] = [
       }
     ]
   },
+
+  // The Digital Castle
   {
     id: 'digital-castle',
     title: 'The Digital Castle',
     icon: 'game-icons:castle',
-    pages: [
+    rooms: [
+      // Armory
       {
-        id: 'intro',
-        title: 'Intro',
-        isSubcategory: true,
-        pages: [
+        id: 'armory',
+        title: 'Armory',
+        path: '/docs/armory',
+        description: 'Shared asset treasury and marketplace',
+        functions: [
           {
-            id: 'castle-overview',
-            title: 'Castle Overview',
-            path: '/docs/castle-overview',
-            category: 'intro',
-            description: 'Introduction to your dGuild\'s digital castle'
+            id: 'claim',
+            title: 'Claim',
+            path: '/docs/armory/claim',
+            description: 'Claim assets from guild treasury'
+          },
+          {
+            id: 'shop',
+            title: 'Shop (G2P)',
+            path: '/docs/armory/shop',
+            description: 'Guild-to-player marketplace'
+          },
+          {
+            id: 'use',
+            title: 'Use (Gear)',
+            path: '/docs/armory/use',
+            description: 'Use and equip gear and assets'
           }
         ]
       },
+      
+      // Command Center
       {
-        id: 'custody-control',
-        title: 'Custody & Control',
-        isSubcategory: true,
-        pages: [
+        id: 'command-centre',
+        title: 'Command Centre',
+        path: '/docs/command-centre',
+        description: 'Administrative dashboard for guild management',
+        functions: [
           {
-            id: 'vault',
-            title: 'Vault',
-            path: '/docs/vault',
-            category: 'custody-control',
-            description: 'Four specialized vaults for asset management'
-          },
-          {
-            id: 'dao',
-            title: 'DAO',
-            path: '/docs/dao',
-            category: 'custody-control',
-            description: 'Governance through token-weighted voting'
+            id: 'manage-all',
+            title: 'Manage All',
+            path: '/docs/command-centre/manage-all',
+            description: 'Comprehensive guild management interface'
           }
         ]
       },
+
+      // Community Hub
       {
-        id: 'operations-engagement',
-        title: 'Operations & Engagement',
-        isSubcategory: true,
-        pages: [
+        id: 'community-hub',
+        title: 'Community Hub',
+        path: '/docs/community-hub',
+        description: 'Guild identity, branding, and member profiles',
+        functions: [
           {
-            id: 'quest-board',
-            title: 'Quest Board',
-            path: '/docs/quest-board',
-            category: 'operations-engagement',
-            description: 'Guild tasks, rewards, and quest management'
+            id: 'guild-profile',
+            title: 'Guild Profile',
+            path: '/docs/community-hub/guild-profile',
+            description: 'Guild profile and branding management'
           },
           {
-            id: 'armory',
-            title: 'Armory',
-            path: '/docs/armory',
-            category: 'operations-engagement',
-            description: 'Shared asset treasury and marketplace'
-          },
-          {
-            id: 'foundry',
-            title: 'Foundry',
-            path: '/docs/foundry',
-            category: 'operations-engagement',
-            description: 'Token and NFT creation center'
+            id: 'member-profile',
+            title: 'Member Profile',
+            path: '/docs/community-hub/member-profile',
+            description: 'Member profile and reputation management'
           }
         ]
       },
+
+      // DAO
       {
-        id: 'community-culture',
-        title: 'Community & Culture',
-        isSubcategory: true,
-        pages: [
+        id: 'dao',
+        title: 'DAO',
+        path: '/docs/dao',
+        description: 'Decentralized autonomous organization governance',
+        functions: [
           {
-            id: 'community-hub',
-            title: 'Community Hub',
-            path: '/docs/community-hub',
-            category: 'community-culture',
-            description: 'Guild identity, branding, and member profiles'
-          },
-          {
-            id: 'trophy-room',
-            title: 'Trophy Room',
-            path: '/docs/trophy-room',
-            category: 'community-culture',
-            description: 'Achievements and guild accomplishments'
-          },
-          {
-            id: 'tavern',
-            title: 'Tavern',
-            path: '/docs/tavern',
-            category: 'community-culture',
-            description: 'Social gaming and entertainment'
+            id: 'voting',
+            title: 'Voting',
+            path: '/docs/dao/voting',
+            description: 'DAO voting mechanisms and proposals'
           }
         ]
       },
+
+      // Dashboard
       {
-        id: 'leadership-strategy',
-        title: 'Leadership & Strategy',
-        isSubcategory: true,
-        pages: [
+        id: 'dashboard',
+        title: 'Dashboard',
+        path: '/docs/dashboard',
+        description: 'Main dashboard for guild overview and management',
+        functions: [
           {
-            id: 'command-centre',
-            title: 'Command Centre',
-            path: '/docs/command-centre',
-            category: 'leadership-strategy',
-            description: 'Administrative dashboard for guild management'
-          },
-          {
-            id: 'observatory',
-            title: 'Observatory',
-            path: '/docs/observatory',
-            category: 'leadership-strategy',
-            description: 'Analytics and strategic insights'
+            id: 'navigation',
+            title: 'Navigation',
+            path: '/docs/dashboard/navigation',
+            description: 'Dashboard navigation and quick access'
           }
         ]
       },
+
+      // Foundry
       {
-        id: 'security-integration',
-        title: 'Security & Integration',
-        isSubcategory: true,
-        pages: [
+        id: 'foundry',
+        title: 'Foundry',
+        path: '/docs/foundry',
+        description: 'Token and NFT creation center',
+        functions: [
           {
-            id: 'gatekeeping',
-            title: 'Gatekeeping',
-            path: '/docs/gatekeeping',
-            category: 'security-integration',
-            description: 'Access control and member verification'
+            id: 'token1',
+            title: 'Token 1',
+            path: '/docs/foundry/token1',
+            description: 'Token 1 creation and management'
           },
           {
-            id: 'integrations',
-            title: 'Integrations',
-            isSubcategory: true,
-            pages: [
-              {
-                id: 'integrations-overview',
-                title: 'Integrations Overview',
-                path: '/docs/integrations',
-                category: 'security-integration',
-                description: 'External platform connections'
-              },
-              {
-                id: 'star-atlas',
-                title: 'Star Atlas',
-                path: '/docs/star-atlas',
-                category: 'security-integration',
-                description: 'Complete Star Atlas integration for dGuilds'
-              }
-            ]
+            id: 'token2',
+            title: 'Token 2',
+            path: '/docs/foundry/token2',
+            description: 'Token 2 creation and management'
+          },
+          {
+            id: 'custom',
+            title: 'Custom',
+            path: '/docs/foundry/custom',
+            description: 'Custom token creation'
+          },
+          {
+            id: 'nft',
+            title: 'NFT',
+            path: '/docs/foundry/nft',
+            description: 'NFT creation and management'
+          }
+        ]
+      },
+
+      // Gatekeeping
+      {
+        id: 'gatekeeping',
+        title: 'Gatekeeping',
+        path: '/docs/gatekeeping',
+        description: 'Access control and member verification',
+        functions: [
+          {
+            id: 'roles',
+            title: 'Roles',
+            path: '/docs/gatekeeping/roles',
+            description: 'Role-based access control and member permissions'
+          },
+          {
+            id: 'permissions',
+            title: 'Permissions',
+            path: '/docs/gatekeeping/permissions',
+            description: 'Granular permissions and access management'
+          }
+        ]
+      },
+
+      // Integrations
+      {
+        id: 'integrations',
+        title: 'Integrations',
+        path: '/docs/integrations',
+        description: 'External platform connections',
+        functions: [
+          {
+            id: 'player',
+            title: 'Player',
+            path: '/docs/integrations/player',
+            description: 'Player-level integrations'
+          },
+          {
+            id: 'guild',
+            title: 'Guild',
+            path: '/docs/integrations/guild',
+            description: 'Guild-level integrations'
+          }
+        ]
+      },
+
+      // Observatory
+      {
+        id: 'observatory',
+        title: 'Observatory',
+        path: '/docs/observatory',
+        description: 'Analytics and strategic insights',
+        functions: [
+          {
+            id: 'personal',
+            title: 'Personal',
+            path: '/docs/observatory/personal',
+            description: 'Personal analytics and performance tracking'
+          },
+          {
+            id: 'dguild',
+            title: 'dGuild',
+            path: '/docs/observatory/dguild',
+            description: 'Guild-wide analytics and insights'
+          },
+          {
+            id: 'financial',
+            title: 'Financial',
+            path: '/docs/observatory/financial',
+            description: 'Financial analytics and treasury tracking'
+          }
+        ]
+      },
+
+      // Quest Board
+      {
+        id: 'quest-board',
+        title: 'Quest Board',
+        path: '/docs/quest-board',
+        description: 'Guild tasks, rewards, and quest management',
+        functions: [
+          {
+            id: 'in-game-quests',
+            title: 'In-Game Quests',
+            path: '/docs/quest-board/in-game-quests',
+            description: 'In-game quest management and tracking'
+          },
+          {
+            id: 'guild-quests',
+            title: 'Guild Quests',
+            path: '/docs/quest-board/guild-quests',
+            description: 'Guild-specific quest management'
+          }
+        ]
+      },
+
+      // Tavern
+      {
+        id: 'tavern',
+        title: 'Tavern',
+        path: '/docs/tavern',
+        description: 'Social gaming and entertainment',
+        functions: [
+          {
+            id: 'events',
+            title: 'Events',
+            path: '/docs/tavern/events',
+            description: 'Guild event management and scheduling'
+          },
+          {
+            id: 'raffles',
+            title: 'Raffles',
+            path: '/docs/tavern/raffles',
+            description: 'Raffle creation and management'
+          },
+          {
+            id: 'poker',
+            title: 'Poker',
+            path: '/docs/tavern/poker',
+            description: 'Poker gaming and tournaments'
+          },
+          {
+            id: 'dice',
+            title: 'Dice',
+            path: '/docs/tavern/dice',
+            description: 'Dice gaming and wagering'
+          }
+        ]
+      },
+
+      // Trophy Room
+      {
+        id: 'trophy-room',
+        title: 'Trophy Room',
+        path: '/docs/trophy-room',
+        description: 'Achievements and guild accomplishments',
+        functions: [
+          {
+            id: 'achievements',
+            title: 'Achievements',
+            path: '/docs/trophy-room/achievements',
+            description: 'Guild and member achievements tracking'
+          }
+        ]
+      },
+
+      // Vaults
+      {
+        id: 'vaults-castle',
+        title: 'Vaults',
+        path: '/docs/vaults-castle',
+        description: 'Four specialized vaults for asset management',
+        functions: [
+          {
+            id: 'overview',
+            title: 'Overview',
+            path: '/docs/vaults-castle/overview',
+            description: 'Vaults overview and asset management'
+          },
+          {
+            id: 'council',
+            title: 'Council',
+            path: '/docs/vaults-castle/council',
+            description: 'Council vault for governance and strategic assets'
           }
         ]
       }
     ]
   },
+
+  // Summary
   {
     id: 'summary',
     title: 'Summary',
     icon: 'game-icons:scroll-quill',
-    pages: [
+    rooms: [
       {
         id: 'summary',
         title: 'Summary',
@@ -239,11 +407,17 @@ export const docsStructure: DocCategory[] = [
 // Flatten all pages for easy lookup and navigation
 export const allDocPages: DocPage[] = []
 docsStructure.forEach(category => {
-  category.pages.forEach(item => {
-    if ('isSubcategory' in item && item.isSubcategory) {
-      allDocPages.push(...item.pages)
-    } else {
-      allDocPages.push(item as DocPage)
+  category.rooms.forEach(room => {
+    // Add the room intro page
+    allDocPages.push({
+      id: room.id,
+      title: room.title,
+      path: room.path,
+      description: room.description
+    })
+    // Add function pages if they exist
+    if (room.functions) {
+      allDocPages.push(...room.functions)
     }
   })
 })
@@ -262,4 +436,3 @@ export const getAdjacentPages = (currentPath: string) => {
 export const getPageMetadata = (path: string) => {
   return allDocPages.find(page => page.path === path)
 }
-

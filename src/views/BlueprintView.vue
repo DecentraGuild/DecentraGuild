@@ -64,7 +64,7 @@
     <section class="content-section fade-section alternate" ref="section2">
       <div class="section-container">
         <div class="section-header">
-          <h2 class="section-title">Create real value in collaboration</h2>
+          <h2 class="section-title">Real value through collaboration</h2>
         </div>
         
         <div class="section-grid reverse">

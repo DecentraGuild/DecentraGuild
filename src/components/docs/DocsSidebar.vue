@@ -25,40 +25,48 @@
                 {{ category.title }}
               </button>
               
-              <ul v-if="expandedCategories.includes(category.id)" class="nav-subsections">
-                <li v-for="item in category.pages" :key="item.id" class="nav-subitem">
-                  <!-- Subcategory -->
-                  <div v-if="'isSubcategory' in item && item.isSubcategory" class="nav-subcategory">
+              <ul v-if="expandedCategories.includes(category.id)" class="nav-rooms">
+                <li v-for="room in category.rooms" :key="room.id" class="nav-room-item">
+                  <!-- Room with functions -->
+                  <div v-if="room.functions && room.functions.length > 0" class="nav-room-with-functions">
                     <button 
-                      :class="['nav-subcategory-header', { active: isSubcategoryActive(item), expanded: expandedSubcategories.includes(item.id) }]"
-                      @click="toggleSubcategory(item.id)"
+                      :class="['nav-room-header', { active: isRoomActive(room), expanded: expandedRooms.includes(room.id) }]"
+                      @click="toggleRoom(room.id)"
                     >
                       <Icon 
-                        :icon="expandedSubcategories.includes(item.id) ? 'game-icons:down-arrow' : 'game-icons:right-arrow'" 
-                        class="subcategory-arrow"
+                        :icon="expandedRooms.includes(room.id) ? 'game-icons:down-arrow' : 'game-icons:right-arrow'" 
+                        class="room-arrow"
                       />
-                      {{ item.title }}
+                      {{ room.title }}
                     </button>
                     
-                    <ul v-if="expandedSubcategories.includes(item.id)" class="nav-subsubsections">
-                      <li v-for="page in item.pages" :key="page.id" class="nav-subsubitem">
+                    <ul v-if="expandedRooms.includes(room.id)" class="nav-functions">
+                      <li class="nav-function-item">
                         <router-link 
-                          :to="page.path" 
-                          :class="['nav-subsublink', { active: isPageActive(page.path) }]"
+                          :to="room.path" 
+                          :class="['nav-function-link', { active: isPageActive(room.path) }]"
                         >
-                          {{ page.title }}
+                          Room
+                        </router-link>
+                      </li>
+                      <li v-for="func in room.functions" :key="func.id" class="nav-function-item">
+                        <router-link 
+                          :to="func.path" 
+                          :class="['nav-function-link', { active: isPageActive(func.path) }]"
+                        >
+                          {{ func.title }}
                         </router-link>
                       </li>
                     </ul>
                   </div>
                   
-                  <!-- Regular page -->
+                  <!-- Room without functions (direct link) -->
                   <router-link 
                     v-else
-                    :to="item.path" 
-                    :class="['nav-sublink', { active: isPageActive(item.path) }]"
+                    :to="room.path" 
+                    :class="['nav-room-link', { active: isPageActive(room.path) }]"
                   >
-                    {{ item.title }}
+                    {{ room.title }}
                   </router-link>
                 </li>
               </ul>
@@ -74,11 +82,11 @@
 import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { Icon } from '@iconify/vue'
-import { docsStructure, type DocCategory, type DocSubcategory, type DocPage } from '@/data/docs'
+import { docsStructure, type DocCategory, type DocRoom } from '@/data/docs'
 
 const route = useRoute()
 const expandedCategories = ref<string[]>([])
-const expandedSubcategories = ref<string[]>([])
+const expandedRooms = ref<string[]>([])
 
 // Initialize expanded state based on current route
 const initializeExpanded = () => {
@@ -86,21 +94,19 @@ const initializeExpanded = () => {
   
   // Clear all expanded states first
   expandedCategories.value = []
-  expandedSubcategories.value = []
+  expandedRooms.value = []
   
-  // Only expand the category and subcategory that contains the current page
+  // Only expand the category and room that contains the current page
   docsStructure.forEach(category => {
-    category.pages.forEach(item => {
-      if ('isSubcategory' in item && item.isSubcategory) {
-        const subcategory = item as DocSubcategory
-        if (subcategory.pages.some(page => page.path === currentPath)) {
-          expandedCategories.value.push(category.id)
-          expandedSubcategories.value.push(subcategory.id)
-        }
-      } else {
-        const page = item as DocPage
-        if (page.path === currentPath) {
-          expandedCategories.value.push(category.id)
+    category.rooms.forEach(room => {
+      // Check if current path matches room intro or any function
+      const isCurrentRoom = room.path === currentPath || 
+        (room.functions && room.functions.some(func => func.path === currentPath))
+      
+      if (isCurrentRoom) {
+        expandedCategories.value.push(category.id)
+        if (room.functions && room.functions.length > 0) {
+          expandedRooms.value.push(room.id)
         }
       }
     })
@@ -124,12 +130,12 @@ const toggleCategory = (categoryId: string) => {
   }
 }
 
-const toggleSubcategory = (subcategoryId: string) => {
-  const index = expandedSubcategories.value.indexOf(subcategoryId)
+const toggleRoom = (roomId: string) => {
+  const index = expandedRooms.value.indexOf(roomId)
   if (index > -1) {
-    expandedSubcategories.value.splice(index, 1)
+    expandedRooms.value.splice(index, 1)
   } else {
-    expandedSubcategories.value.push(subcategoryId)
+    expandedRooms.value.push(roomId)
   }
 }
 
@@ -138,16 +144,21 @@ const isPageActive = (path: string) => {
 }
 
 const isCategoryActive = (category: DocCategory) => {
-  return category.pages.some(item => {
-    if ('isSubcategory' in item && item.isSubcategory) {
-      return (item as DocSubcategory).pages.some(page => page.path === route.path)
+  return category.rooms.some(room => {
+    if (room.path === route.path) return true
+    if (room.functions) {
+      return room.functions.some(func => func.path === route.path)
     }
-    return (item as DocPage).path === route.path
+    return false
   })
 }
 
-const isSubcategoryActive = (subcategory: DocSubcategory) => {
-  return subcategory.pages.some(page => page.path === route.path)
+const isRoomActive = (room: DocRoom) => {
+  if (room.path === route.path) return true
+  if (room.functions) {
+    return room.functions.some(func => func.path === route.path)
+  }
+  return false
 }
 </script>
 
@@ -251,17 +262,17 @@ const isSubcategoryActive = (subcategory: DocSubcategory) => {
   flex-shrink: 0;
 }
 
-.nav-subsections {
+.nav-rooms {
   list-style: none;
   padding: 4px 0 0 0;
   margin: 0;
 }
 
-.nav-subitem {
+.nav-room-item {
   margin-bottom: 4px;
 }
 
-.nav-sublink {
+.nav-room-link {
   display: block;
   padding: 8px 16px 8px 40px;
   color: var(--text-secondary);
@@ -271,18 +282,18 @@ const isSubcategoryActive = (subcategory: DocSubcategory) => {
   font-size: 0.85rem;
 }
 
-.nav-sublink:hover {
+.nav-room-link:hover {
   background: var(--secondary-bg);
   color: var(--text-primary);
 }
 
-.nav-sublink.active {
+.nav-room-link.active {
   background: var(--primary-color);
   color: white;
   font-weight: 500;
 }
 
-.nav-subcategory-header {
+.nav-room-header {
   display: flex;
   align-items: center;
   gap: 6px;
@@ -299,31 +310,32 @@ const isSubcategoryActive = (subcategory: DocSubcategory) => {
   cursor: pointer;
 }
 
-.nav-subcategory-header:hover {
+.nav-room-header:hover {
   background: var(--secondary-bg);
   color: var(--text-primary);
 }
 
-.nav-subcategory-header.active {
+.nav-room-header.active {
   color: var(--primary-color);
 }
 
-.subcategory-arrow {
+.room-arrow {
   font-size: 0.7rem;
   transition: transform 0.2s ease;
+  flex-shrink: 0;
 }
 
-.nav-subsubsections {
+.nav-functions {
   list-style: none;
   padding: 4px 0 0 0;
   margin: 0;
 }
 
-.nav-subsubitem {
-  margin-bottom: 4px;
+.nav-function-item {
+  margin-bottom: 2px;
 }
 
-.nav-subsublink {
+.nav-function-link {
   display: block;
   padding: 6px 16px 6px 64px;
   color: var(--text-secondary);
@@ -333,12 +345,12 @@ const isSubcategoryActive = (subcategory: DocSubcategory) => {
   font-size: 0.8rem;
 }
 
-.nav-subsublink:hover {
+.nav-function-link:hover {
   background: var(--secondary-bg);
   color: var(--text-primary);
 }
 
-.nav-subsublink.active {
+.nav-function-link.active {
   background: var(--primary-color);
   color: white;
   font-weight: 500;
@@ -371,4 +383,3 @@ const isSubcategoryActive = (subcategory: DocSubcategory) => {
   }
 }
 </style>
-

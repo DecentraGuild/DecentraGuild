@@ -13,8 +13,24 @@
     </router-link>
     <div v-else class="nav-spacer"></div>
     
+    <!-- Custom next link (external) -->
+    <a 
+      v-if="customNext" 
+      :href="customNext.url" 
+      :target="customNext.external ? '_blank' : undefined"
+      :rel="customNext.external ? 'noopener noreferrer' : undefined"
+      class="nav-button nav-next nav-custom"
+    >
+      <div class="nav-content">
+        <span class="nav-label">{{ customNext.label || 'Next' }}</span>
+        <span class="nav-title">{{ customNext.title }}</span>
+      </div>
+      <Icon :icon="customNext.icon || 'game-icons:back-forth'" class="nav-icon nav-icon-flip" />
+    </a>
+    
+    <!-- Regular next link -->
     <router-link 
-      v-if="next" 
+      v-else-if="next" 
       :to="next.path" 
       class="nav-button nav-next"
     >
@@ -34,11 +50,23 @@ import { useRoute } from 'vue-router'
 import { Icon } from '@iconify/vue'
 import { getAdjacentPages } from '@/data/docs'
 
+interface CustomNextLink {
+  url: string
+  title: string
+  label?: string
+  icon?: string
+  external?: boolean
+}
+
+const props = defineProps<{
+  customNext?: CustomNextLink
+}>()
+
 const route = useRoute()
 
 const adjacentPages = computed(() => getAdjacentPages(route.path))
 const previous = computed(() => adjacentPages.value.previous)
-const next = computed(() => adjacentPages.value.next)
+const next = computed(() => props.customNext ? null : adjacentPages.value.next)
 </script>
 
 <style scoped>
@@ -115,6 +143,27 @@ const next = computed(() => adjacentPages.value.next)
 .nav-spacer {
   flex: 1;
   max-width: 300px;
+}
+
+.nav-custom {
+  background: linear-gradient(135deg, var(--primary-color) 0%, #8b5cf6 100%);
+  border-color: var(--primary-color);
+  color: white;
+}
+
+.nav-custom:hover {
+  background: linear-gradient(135deg, #8b5cf6 0%, var(--primary-color) 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.3);
+}
+
+.nav-custom .nav-label,
+.nav-custom .nav-title {
+  color: white;
+}
+
+.nav-custom .nav-icon {
+  color: white;
 }
 
 /* Responsive */
