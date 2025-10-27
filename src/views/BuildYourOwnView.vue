@@ -28,7 +28,7 @@
             v-for="(module, index) in modules" 
             :key="index" 
             class="card stacked-card"
-            :class="{ 'reverse': index % 2 === 1 }"
+            :class="{ 'reverse': index % 2 === 0 }"
           >
             <div class="card-image">
               <img 
@@ -74,6 +74,11 @@ import { ref } from 'vue'
 // Module data
 const modules = ref([
   {
+    name: "Gate Room",
+    description: "Create and maintain a whitelist of wallets and use this on your website to control access or use tokenholder snapshots",
+    image: "/alacarte/Gatekeepingmodule.webp"
+  },
+  {
     name: "Foundry Room",
     description: "Modules for token creation, token wrappers with escrows vaults and NFT minting system with customizable parameters",
     image: "/alacarte/foundrymodule.webp"
@@ -89,19 +94,14 @@ const modules = ref([
     image: "/alacarte/Questmodule.webp"
   },
   {
-    name: "Gate Room ",
-    description: "Create and maintain a whitelist of wallets and use this on your website to control access or use tokenholder snapshots",
-    image: "/alacarte/Gatekeepingmodule.webp"
-  },
-  {
     name: "Tavern Room",
     description: "Modules for planning on-chain Events, Raffles, Poker or host a Dicegame for community engagement and entertainment.",
     image: "/alacarte/tavernmodule.webp"
   },
   {
-    name: "Custom Skin Module",
-    description: "Custom Skin package for a dGuild dapp with theming and branding options.",
-    image: "/alacarte/CustomSkinmodule.webp"
+    name: "Trophy Room",
+    description: "Modules to track and reward for participating in any of the BYO-rooms.",
+    image: "/alacarte/Trophymodule.webp"
   }
 ])
 </script>
