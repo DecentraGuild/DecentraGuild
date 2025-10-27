@@ -34,8 +34,11 @@
               <img 
                 :src="module.image" 
                 :alt="module.name"
-                loading="lazy"
+                :loading="index < 2 ? 'eager' : 'lazy'"
+                :fetchpriority="index === 0 ? 'high' : index === 1 ? 'auto' : 'low'"
                 decoding="async"
+                width="600"
+                height="300"
               />
             </div>
             <div class="card-content">
@@ -102,6 +105,11 @@ const modules = ref([
     name: "Trophy Room",
     description: "Modules to track and reward for participating in any of the BYO-rooms.",
     image: "/alacarte/Trophymodule.webp"
+  },
+  {
+    name: "Custom Skin Module",
+    description: "Custom Skin package for a dGuild dapp with theming and branding options.",
+    image: "/alacarte/CustomSkinmodule.webp"
   }
 ])
 </script>
@@ -196,6 +204,8 @@ const modules = ref([
   width: 100%;
   height: 100%;
   object-fit: cover;
+  aspect-ratio: 2 / 1;
+  display: block;
 }
 
 .card-content {
