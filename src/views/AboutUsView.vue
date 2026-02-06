@@ -155,7 +155,7 @@
             custom-class="join-card"
           >
             <template #tags>
-              <a href="https://discord.gg/pcSmsNsg" target="_blank" class="btn btn-primary">Join Discord</a>
+              <a href="https://discord.gg/WN6snkFqB4" target="_blank" class="btn btn-primary">Join Discord</a>
               <div class="empty-space"></div>
             </template>
           </FeatureCard>
