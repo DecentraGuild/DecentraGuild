@@ -23,7 +23,12 @@
     
     <div class="container">
       <div class="hero-content text-center" :class="{ 'text-lit': isTextLit }">
-        <h1 class="hero-title mb-4" v-html="title"></h1>
+        <h1 class="hero-title mb-4">
+          <template v-for="(line, i) in titleLines" :key="i">
+            <span v-if="i > 0"><br /></span>
+            <span :class="{ 'text-gradient': highlightLastLine && i === titleLines.length - 1 }">{{ line }}</span>
+          </template>
+        </h1>
         <p class="hero-subtitle mb-5">{{ subtitle }}</p>
         
         <div v-if="primaryCtaText || primaryCtaLink || secondaryCtaText || $slots.cta" class="hero-cta flex justify-center gap-3">
@@ -47,10 +52,11 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { COPY, type HeroTitleConfig } from '@/config/site'
 
 interface Props {
-  title?: string
+  title?: HeroTitleConfig
   subtitle?: string
   videoSrc?: string
   primaryCtaText?: string
@@ -64,14 +70,17 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  title: 'Create Your dGuild.<br />Build Your House.<br /><span class="text-gradient">Rule On-Chain.</span>',
-  subtitle: 'DecentraGuild lets you create and manage decentralized guilds with tools for missions, events, rewards, governance and more — powered by Solana.',
+  title: () => COPY.heroTitle,
+  subtitle: COPY.heroSubtitle,
   customClass: '',
   glowColor: 'rgba(0, 212, 255, 0.8)',
   gridColor: 'rgba(0, 212, 255, 0.1)',
   enableTextAnimation: true,
   animationDelay: 3500
 })
+
+const titleLines = computed(() => props.title?.lines ?? [])
+const highlightLastLine = computed(() => props.title?.highlightLast ?? false)
 
 const emit = defineEmits<{
   secondaryCtaClick: []

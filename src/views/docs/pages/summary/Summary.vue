@@ -3,7 +3,7 @@
     title="🧭 Summary"
     description="Complete overview of the dGuild framework"
     :custom-next="{
-      url: 'https://dapp.decentraguild.com',
+      url: LINKS.demoApp,
       title: 'Try the Demo',
       label: 'Demo',
       icon: 'game-icons:play-button',
@@ -12,7 +12,7 @@
   >
     <div class="content-section">
       <p class="lead">
-        DecentraGuild provides a complete framework for <strong>self-sovereign organizations</strong>.
+        {{ BRAND.siteName }} provides a complete framework for <strong>self-sovereign organizations</strong>.
       </p>
     </div>
 
@@ -52,6 +52,7 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
 import DocPageLayout from '@/components/docs/DocPageLayout.vue'
+import { BRAND, LINKS } from '@/config/site'
 </script>
 
 <style scoped>

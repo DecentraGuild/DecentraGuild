@@ -147,7 +147,7 @@
           <FeatureCard 
             icon="logos:discord-icon"
             title="Discord Community"
-            description="Join our Discord server to connect with other guild leaders, get support, and shape the future of DecentraGuild."
+            :description="`Join our Discord server to connect with other guild leaders, get support, and shape the future of ${BRAND.siteName}.`"
             :use-game-icon="true"
             icon-shape="none"
             icon-color="rgba(0, 212, 255, 0.8)"
@@ -155,13 +155,13 @@
             custom-class="join-card"
           >
             <template #tags>
-              <a href="https://discord.gg/WN6snkFqB4" target="_blank" class="btn btn-primary">Join Discord</a>
+              <a :href="LINKS.discord" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Join Discord</a>
               <div class="empty-space"></div>
             </template>
           </FeatureCard>
           
           <FeatureCard 
-            icon="📧"
+            icon="mdi:email-outline"
             title="Contact Us"
             description="Have questions or want to get in touch? Send us an email and we'll get back to you as soon as possible."
             icon-shape="none"
@@ -170,7 +170,7 @@
             custom-class="join-card"
           >
             <template #tags>
-              <a href="mailto:jordi@decentraguild.com" class="btn btn-primary">
+              <a :href="LINKS.contactEmail" class="btn btn-primary">
                 Send Email
               </a>
               <div class="empty-space"></div>
@@ -188,7 +188,7 @@
             custom-class="join-card"
           >
             <template #tags>
-              <a href="https://x.com/DecentraGuild" target="_blank" class="btn btn-primary">Follow X</a>
+              <a :href="LINKS.x" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Follow X</a>
               <div class="empty-space"></div>
             </template>
           </FeatureCard>
@@ -202,9 +202,9 @@
         <div class="community-cta text-center">
           <h2 class="mb-3">Ready to to try your dGuild?</h2>
           <p class="mb-4">
-            Experience what makes DecentraGuild special with our interactive demo.
+            Experience what makes {{ BRAND.siteName }} special with our interactive demo.
           </p>
-                      <router-link to="/docs" class="btn btn-primary btn-large">
+          <router-link :to="ROUTES.docs" class="btn btn-primary btn-large">
             Learn More
           </router-link>
         </div>
@@ -217,6 +217,7 @@
 import { ref } from 'vue'
 import GameIcon from '@/components/ui/GameIcon.vue'
 import FeatureCard from '@/components/ui/FeatureCard.vue'
+import { BRAND, LINKS, ROUTES } from '@/config/site'
 
 </script>
 

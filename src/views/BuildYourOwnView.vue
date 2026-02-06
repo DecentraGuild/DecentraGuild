@@ -6,11 +6,42 @@
         <div class="header-content text-center">
           <h1 class="page-title">Build-Your-Own</h1>
           <p class="page-subtitle">
-            While we work towards delivering the complete dGuild package, we offer modular room solutions that allow communities to use finished components and build their own customized toolkit.
+            Use only what you need. Add more as you grow.
           </p>
-          <p class="page-description">
-            This approach enables us to fund new smart contract deployments while providing immediate value to communities that need specific functionality. You can pick and choose the tools that work for your guild right now, then expand as more features become available.
-          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Live Banner -->
+    <div class="live-banner">
+      <h2 class="live-banner-text">Live</h2>
+    </div>
+
+    <!-- Live: Marketplace block -->
+    <section class="section-live">
+      <div class="container">
+        <div class="live-cards">
+          <div class="card stacked-card live-card">
+            <div class="card-image">
+              <img
+                src="/alacarte/Marketplacemodule.png"
+                alt="Marketplace"
+                loading="eager"
+                decoding="async"
+                width="600"
+                height="300"
+              />
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Marketplace</h3>
+              <p class="card-description">
+                Create fully branded Solana Marketplace in minutes, for internal use or trading hub with your community.
+              </p>
+              <a :href="LINKS.marketplace" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                Open Marketplace
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -58,10 +89,10 @@
             Ready to build your custom guild infrastructure?
           </p>
           <div class="cta-buttons">
-            <router-link to="/about" class="btn btn-secondary">
+            <router-link :to="ROUTES.about" class="btn btn-secondary">
               Learn More
             </router-link>
-            <router-link to="/about" class="btn btn-primary">
+            <router-link :to="ROUTES.about" class="btn btn-primary">
               Contact Us
             </router-link>
           </div>
@@ -73,6 +104,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { LINKS, ROUTES } from '@/config/site'
 
 // Module data
 const modules = ref([
@@ -144,14 +176,45 @@ const modules = ref([
   line-height: 1.6;
 }
 
-.page-description {
-  font-size: 1rem;
-  color: var(--text-secondary);
-  margin: 0 0 40px 0;
-  line-height: 1.6;
-  opacity: 0.9;
+/* Live Banner (green tint) */
+.live-banner {
+  background: rgba(34, 197, 94, 0.08);
+  padding: 16px 0;
+  text-align: center;
+  border-top: 2px solid #22c55e;
+  border-bottom: 2px solid #22c55e;
 }
 
+.live-banner-text {
+  color: #22c55e;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.section-live {
+  padding: 60px 0;
+  background: var(--primary-bg);
+}
+
+.live-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.live-card {
+  border-color: rgba(34, 197, 94, 0.5);
+  box-shadow: 0 4px 20px rgba(34, 197, 94, 0.1);
+}
+
+.live-card .btn-primary {
+  margin-top: 16px;
+}
 
 /* Coming Soon Banner */
 .coming-soon-banner {

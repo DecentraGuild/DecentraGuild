@@ -1,4 +1,6 @@
 // Reusable UI Components
+import type { HeroTitleConfig } from '@/config/site'
+
 export { default as HeroSection } from './HeroSection.vue'
 export { default as FeatureCard } from './FeatureCard.vue'
 export { default as StepCard } from './StepCard.vue'
@@ -42,7 +44,7 @@ export interface StepCardProps {
 }
 
 export interface HeroSectionProps {
-  title?: string
+  title?: HeroTitleConfig
   subtitle?: string
   videoSrc?: string
   primaryCtaText?: string

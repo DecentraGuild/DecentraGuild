@@ -3,22 +3,22 @@
     <div class="container">
       <div class="navbar-content">
         <!-- Logo -->
-        <router-link to="/" class="logo">
-          <img src="/logo/dguild-logo.svg" alt="DecentraGuild" class="logo-image">
-          <span class="logo-text">DecentraGuild</span>
+        <router-link :to="ROUTES.home" class="logo">
+          <img :src="BRAND.logoPath" :alt="BRAND.siteName" class="logo-image">
+          <span class="logo-text">{{ BRAND.siteName }}</span>
         </router-link>
 
         <!-- Desktop Navigation -->
         <div class="nav-links">
-          <router-link to="/" class="nav-link">Home</router-link>
-          <router-link to="/blueprint" class="nav-link">Blueprint</router-link>
-          <router-link to="/build-your-own" class="nav-link">Build-Your-Own</router-link>
-          <router-link to="/about" class="nav-link">About Us</router-link>
+          <router-link :to="ROUTES.home" class="nav-link">Home</router-link>
+          <router-link :to="ROUTES.blueprint" class="nav-link">Blueprint</router-link>
+          <router-link :to="ROUTES.buildYourOwn" class="nav-link">Build-Your-Own</router-link>
+          <router-link :to="ROUTES.about" class="nav-link">About Us</router-link>
         </div>
 
         <!-- CTA Button -->
         <div class="nav-cta">
-          <a href="https://dapp.decentraguild.com" target="_blank" class="btn btn-primary">Demo</a>
+          <a :href="LINKS.demoApp" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Demo</a>
         </div>
 
         <!-- Mobile Menu Button -->
@@ -36,11 +36,11 @@
       <!-- Mobile Navigation -->
       <div class="mobile-nav" :class="{ active: mobileMenuOpen }">
         <div class="mobile-nav-links">
-          <router-link to="/" class="mobile-nav-link" @click="closeMobileMenu">Home</router-link>
-          <router-link to="/blueprint" class="mobile-nav-link" @click="closeMobileMenu">Blueprint</router-link>
-          <router-link to="/build-your-own" class="mobile-nav-link" @click="closeMobileMenu">Build-Your-Own</router-link>
-          <router-link to="/about" class="mobile-nav-link" @click="closeMobileMenu">About Us</router-link>
-          <a href="https://dapp.decentraguild.com" target="_blank" class="mobile-nav-link mobile-demo-link" @click="closeMobileMenu">
+          <router-link :to="ROUTES.home" class="mobile-nav-link" @click="closeMobileMenu">Home</router-link>
+          <router-link :to="ROUTES.blueprint" class="mobile-nav-link" @click="closeMobileMenu">Blueprint</router-link>
+          <router-link :to="ROUTES.buildYourOwn" class="mobile-nav-link" @click="closeMobileMenu">Build-Your-Own</router-link>
+          <router-link :to="ROUTES.about" class="mobile-nav-link" @click="closeMobileMenu">About Us</router-link>
+          <a :href="LINKS.demoApp" target="_blank" rel="noopener noreferrer" class="mobile-nav-link mobile-demo-link" @click="closeMobileMenu">
             Demo
           </a>
         </div>
@@ -51,6 +51,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { BRAND, LINKS, ROUTES } from '@/config/site'
 
 const mobileMenuOpen = ref(false)
 

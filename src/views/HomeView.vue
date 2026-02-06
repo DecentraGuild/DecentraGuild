@@ -3,8 +3,8 @@
     <!-- Hero Section -->
     <HeroSection 
       :video-src="'/intro.mp4'"
-      :title="'Create a dGuild.<br />Build Your House.<br /><span class=\'text-gradient\'>Rule On-Chain.</span>'"
-      :subtitle="'DecentraGuild lets you create and manage decentralized guilds with tools for missions, events, rewards, governance and more — powered by Solana.'"
+      :title="COPY.heroTitle"
+      :subtitle="COPY.heroSubtitle"
     />
 
     <!-- Interactive Castle Infographic Section -->
@@ -62,7 +62,7 @@
           <div class="experience-text">
             <h2 class="experience-title">Do a pulse check!</h2>
             <p class="experience-subtitle">Check out our demo environment</p>
-            <a href="https://dapp.decentraguild.com" target="_blank" class="btn btn-primary btn-large animate-glow">
+            <a :href="LINKS.demoApp" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large animate-glow">
               Try Demo
             </a>
           </div>
@@ -91,7 +91,7 @@
         <div class="blueprint-cta-content">
           <h2 class="blueprint-cta-title">Ready to Build Your Guild?</h2>
           <p class="blueprint-cta-subtitle">Explore our comprehensive blueprint and start building your decentralized guild today</p>
-          <router-link to="/blueprint" class="btn btn-primary btn-large">
+          <router-link :to="ROUTES.blueprint" class="btn btn-primary btn-large">
             View Blueprint
           </router-link>
         </div>
@@ -116,6 +116,7 @@ import {
   progressSteps, 
   whyCardsData 
 } from '@/data/features'
+import { COPY, LINKS, ROUTES } from '@/config/site'
 
 const currentStep = ref(1)
 

@@ -268,11 +268,11 @@
         <h2 class="cta-title">Ready to Build Your Guild?</h2>
         <p class="cta-subtitle">Join the future of Web3 gaming and community governance</p>
         <div class="cta-buttons">
-          <a href="https://dapp.decentraguild.com" target="_blank" class="cta-button primary">
+          <a :href="LINKS.demoApp" target="_blank" rel="noopener noreferrer" class="cta-button primary">
             <Icon icon="mdi:play-circle" />
             <span>Try the Demo</span>
           </a>
-          <router-link to="/build-your-own" class="cta-button secondary">
+          <router-link :to="ROUTES.buildYourOwn" class="cta-button secondary">
             <Icon icon="mdi:toolbox" />
             <span>Build Your Own</span>
           </router-link>
@@ -285,6 +285,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 import { Icon } from '@iconify/vue'
+import { LINKS, ROUTES } from '@/config/site'
 
 // Refs for sections
 const heroSection = ref<HTMLElement>()
