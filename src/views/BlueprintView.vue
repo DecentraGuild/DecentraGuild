@@ -60,78 +60,59 @@
       </div>
     </section>
 
-    <!-- Section 2: Built on Shared Power -->
+    <!-- Section 2: Your Castle -->
     <section class="content-section fade-section alternate" ref="section2">
       <div class="section-container">
         <div class="section-header">
-          <h2 class="section-title">Real value through collaboration</h2>
+          <h2 class="section-title">Your Castle, Your Kingdom</h2>
         </div>
         
         <div class="section-grid reverse">
           <div class="image-card">
             <img 
-              src="/blueprint/Step2.webp" 
-              alt="Shared Power"
+              src="/blueprint/Step4.webp" 
+              alt="Your Castle"
               class="section-image"
             />
           </div>
           
           <div class="content-card main-card">
-            <h3 class="card-heading">From Foundation to Execution</h3>
+            <h3 class="card-heading">A solid Foundation</h3>
             <div class="card-content">
               <p>
-                Web3 guilds exist in the space between hobby groups and real organizations. 
-                But collaborating on-chain as a group requires deep technical knowledge, legal frameworks, and capital that most individuals don't want to risk.
-              </p>
-              <p>
-                This is where dGuild changes everything. By accepting our blueprint you're allowed to function as 1 entity, right from the start.
-                 By pooling resources into <strong>dGuild vaults</strong>, members gain access to assets and opportunities they couldn't reach individually.
+                When you create a dGuild, you gain access to a complete suite of on-chain tools that transform your community into a self-running organization.
               </p>
               
-              <div class="feature-grid">
-                <div class="feature-item">
-                  <Icon icon="mdi:safe" class="feature-icon" />
-                  <div>
-                    <h4>4 Specialized Vaults</h4>
-                    <p>Income flows through secure multisig vaults that fund operations, back tokens, and fuel the perpetual engine.</p>
-                  </div>
+              <h4 class="subheading">Your dGuild Can:</h4>
+              <div class="capabilities-grid">
+                <div class="capability-item">
+                  <Icon icon="mdi:account-badge" />
+                  <span>Create profiles, ranks, and assign permissions</span>
                 </div>
-                
-                <div class="feature-item">
-                  <Icon icon="mdi:vote" class="feature-icon" />
-                  <div>
-                    <h4>Dual Governance</h4>
-                    <p>Two token systems and three DAOs balance daily operations with long-term stability.</p>
-                  </div>
+                <div class="capability-item">
+                  <Icon icon="mdi:coin" />
+                  <span>Launch tokens, NFTs, and achievements</span>
                 </div>
-                
-                <div class="feature-item">
-                  <Icon icon="mdi:shield-lock" class="feature-icon" />
-                  <div>
-                    <h4>Self-Custody</h4>
-                    <p>Your guild owns its assets. No platform can take them away.</p>
-                  </div>
+                <div class="capability-item">
+                  <Icon icon="mdi:map-marker-path" />
+                  <span>Run quests, events, tournaments, and challenges</span>
                 </div>
-                
-                <div class="feature-item">
-                  <Icon icon="mdi:scale-balance" class="feature-icon" />
-                  <div>
-                    <h4>Legal Recognition</h4>
-                    <p>Real-world legal wrappers ensure compliance and legitimacy.</p>
-                  </div>
+                <div class="capability-item">
+                  <Icon icon="mdi:gift" />
+                  <span>Distribute airdrops and share resources with members</span>
                 </div>
-                
-                <div class="feature-item">
-                  <Icon icon="mdi:tools" class="feature-icon" />
-                  <div>
-                    <h4>Unified Tools</h4>
-                    <p>Tokens, quests, NFTs, collaboration—everything you need in one ecosystem.</p>
-                  </div>
+                <div class="capability-item">
+                  <Icon icon="mdi:key" />
+                  <span>Manage workflows, treasury, and taxes</span>
+                </div>
+                <div class="capability-item">
+                  <Icon icon="mdi:gavel" />
+                  <span>Govern through DAO votes and Council operations</span>
                 </div>
               </div>
               
               <p class="emphasis">
-                The dGuild template provides the complete technical and legal backbone for Play-to-Earn, Esports, Web3 gaming, and community ventures to flourish. Lower personal risk while increasing collective power.
+                Everything your guild needs — from formation to expansion — inside one digital castle.
               </p>
             </div>
           </div>
@@ -202,59 +183,78 @@
       </div>
     </section>
 
-    <!-- Section 4: Your Castle -->
+    <!-- Section 4: Real value through collaboration -->
     <section class="content-section fade-section alternate" ref="section4">
       <div class="section-container">
         <div class="section-header">
-          <h2 class="section-title">Your Castle, Your Kingdom</h2>
+          <h2 class="section-title">Real value through collaboration</h2>
         </div>
         
         <div class="section-grid reverse">
           <div class="image-card">
             <img 
-              src="/blueprint/Step4.webp" 
-              alt="Your Castle"
+              src="/blueprint/Step2.webp" 
+              alt="Shared Power"
               class="section-image"
             />
           </div>
           
           <div class="content-card main-card">
-            <h3 class="card-heading">A solid Foundation</h3>
+            <h3 class="card-heading">From Template to Execution</h3>
             <div class="card-content">
               <p>
-                When you create a dGuild, you gain access to a complete suite of on-chain tools that transform your community into a self-running organization.
+                Web3 guilds exist in the space between hobby groups and real organizations. 
+                But collaborating on-chain as a group requires deep technical knowledge, legal frameworks, and capital that most individuals don't want to risk.
+              </p>
+              <p>
+                This is where dGuild changes everything. By accepting our blueprint you're allowed to function as 1 entity, right from the start.
+                 By pooling resources into <strong>dGuild vaults</strong>, members gain access to assets and opportunities they couldn't reach individually.
               </p>
               
-              <h4 class="subheading">Your dGuild Can:</h4>
-              <div class="capabilities-grid">
-                <div class="capability-item">
-                  <Icon icon="mdi:account-badge" />
-                  <span>Create profiles, ranks, and assign permissions</span>
+              <div class="feature-grid">
+                <div class="feature-item">
+                  <Icon icon="mdi:safe" class="feature-icon" />
+                  <div>
+                    <h4>4 Specialized Vaults</h4>
+                    <p>Income flows through secure multisig vaults that fund operations, back tokens, and fuel the perpetual engine.</p>
+                  </div>
                 </div>
-                <div class="capability-item">
-                  <Icon icon="mdi:coin" />
-                  <span>Launch tokens, NFTs, and achievements</span>
+                
+                <div class="feature-item">
+                  <Icon icon="mdi:vote" class="feature-icon" />
+                  <div>
+                    <h4>Dual Governance</h4>
+                    <p>Two token systems and three DAOs balance daily operations with long-term stability.</p>
+                  </div>
                 </div>
-                <div class="capability-item">
-                  <Icon icon="mdi:map-marker-path" />
-                  <span>Run quests, events, tournaments, and challenges</span>
+                
+                <div class="feature-item">
+                  <Icon icon="mdi:shield-lock" class="feature-icon" />
+                  <div>
+                    <h4>Self-Custody</h4>
+                    <p>Your guild owns its assets. No platform can take them away.</p>
+                  </div>
                 </div>
-                <div class="capability-item">
-                  <Icon icon="mdi:gift" />
-                  <span>Distribute airdrops and share resources with members</span>
+                
+                <div class="feature-item">
+                  <Icon icon="mdi:scale-balance" class="feature-icon" />
+                  <div>
+                    <h4>Legal Recognition</h4>
+                    <p>Real-world legal wrappers ensure compliance and legitimacy.</p>
+                  </div>
                 </div>
-                <div class="capability-item">
-                  <Icon icon="mdi:key" />
-                  <span>Manage workflows, treasury, and taxes</span>
-                </div>
-                <div class="capability-item">
-                  <Icon icon="mdi:gavel" />
-                  <span>Govern through DAO votes and Council operations</span>
+                
+                <div class="feature-item">
+                  <Icon icon="mdi:tools" class="feature-icon" />
+                  <div>
+                    <h4>Unified Tools</h4>
+                    <p>Tokens, quests, NFTs, collaboration—everything you need in one ecosystem.</p>
+                  </div>
                 </div>
               </div>
               
               <p class="emphasis">
-                Everything your guild needs — from formation to expansion — inside one digital castle.
+                The dGuild template provides the complete technical and legal backbone for Play-to-Earn, Esports, Web3 gaming, and community ventures to flourish. Lower personal risk while increasing collective power.
               </p>
             </div>
           </div>
