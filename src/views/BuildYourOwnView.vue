@@ -12,16 +12,16 @@
       </div>
     </section>
 
-    <!-- Live Banner -->
-    <div class="live-banner">
-      <h2 class="live-banner-text">Live</h2>
+    <!-- Staged Banner -->
+    <div class="staged-banner">
+      <h2 class="staged-banner-text">Staged</h2>
     </div>
 
-    <!-- Live: Marketplace block -->
-    <section class="section-live">
+    <!-- Staged: Marketplace block -->
+    <section class="section-staged">
       <div class="container">
-        <div class="live-cards">
-          <div class="card stacked-card live-card">
+        <div class="staged-cards">
+          <div class="card stacked-card staged-card">
             <div class="card-image">
               <img
                 src="/alacarte/Marketplacemodule.png"
@@ -176,17 +176,17 @@ const modules = ref([
   line-height: 1.6;
 }
 
-/* Live Banner (green tint) */
-.live-banner {
-  background: rgba(34, 197, 94, 0.08);
+/* Staged Banner (orange – not fully live yet) */
+.staged-banner {
+  background: rgba(234, 88, 12, 0.1);
   padding: 16px 0;
   text-align: center;
-  border-top: 2px solid #22c55e;
-  border-bottom: 2px solid #22c55e;
+  border-top: 2px solid #ea580c;
+  border-bottom: 2px solid #ea580c;
 }
 
-.live-banner-text {
-  color: #22c55e;
+.staged-banner-text {
+  color: #ea580c;
   font-size: 1.2rem;
   font-weight: 700;
   margin: 0;
@@ -194,12 +194,12 @@ const modules = ref([
   letter-spacing: 1px;
 }
 
-.section-live {
+.section-staged {
   padding: 60px 0;
   background: var(--primary-bg);
 }
 
-.live-cards {
+.staged-cards {
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -207,12 +207,12 @@ const modules = ref([
   margin: 0 auto;
 }
 
-.live-card {
-  border-color: rgba(34, 197, 94, 0.5);
-  box-shadow: 0 4px 20px rgba(34, 197, 94, 0.1);
+.staged-card {
+  border-color: rgba(234, 88, 12, 0.5);
+  box-shadow: 0 4px 20px rgba(234, 88, 12, 0.1);
 }
 
-.live-card .btn-primary {
+.staged-card .btn-primary {
   margin-top: 16px;
 }
 
